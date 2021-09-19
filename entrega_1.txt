@@ -1,0 +1,8 @@
+    En principio lo que se debe lograr en el problema es poder optimizar como se reparten las prendas entre los lavados.
+    En el peor caso se repartirían las n prendas en n lavados, pero claramente no sería una solución óptima. Mejores soluciones
+se darían armando estructuras de datos donde se almacenen los datos leidos de los archivos relativos a los costos e
+incompatibilidades a la hora de mezclar prendas. Una primera aproximación sería mediante colas y listas, que permitirían
+almacenar todos estos datos. También una solución sería trabajar con un grafo no dirigido (ya que las restricciones
+en el lavado de las prendas no tienen una "dirección") e ir amandolo con los datos obtenidos del archivo,
+donde los nodos serían las prendas y las aristas podrían implicar las incompatibilidades o no, según que datos
+se decidan modelar en el mismo.
