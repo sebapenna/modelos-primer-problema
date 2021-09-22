@@ -20,3 +20,8 @@ En esta solución lo que decidí es, una vez cargadas todas las prendas y sus da
     - Todas las prendas que forman parte del lavado actual se registran como lavadas (quitandolas del listado antes mencionado)
     Al finalizar se habrá seleccionado sucesivamente aquella prenda que tenga mayor costo, la cual dominará en el lavado y por lo tanto
 los costos de las otras prendas (compatibles) serán si o si menores.
+
+Mejora:
+    En lugar de ordenar las prendas por su costo, se las ordena ahora por la cantidad de incompatibilidades que tienen. De esa forma,
+se busca reducir la cantidad de lavados obtenidos en la solución previa. El resultado que se obtuvo fue el esperado, ya que se
+quitó un lavado y también como consecuencia se redujó el costo total (de 67 cambio a 61).

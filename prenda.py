@@ -9,3 +9,6 @@ class Prenda:
 
     def agregar_incompatibilidad(self, id_incomp):
         self.ids_prendas_incompatibles.append(id_incomp)
+
+    def cantidad_incompatibles(self):
+        return len(self.ids_prendas_incompatibles)
