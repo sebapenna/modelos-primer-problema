@@ -6,3 +6,17 @@ almacenar todos estos datos. También una solución sería trabajar con un grafo
 en el lavado de las prendas no tienen una "dirección") e ir amandolo con los datos obtenidos del archivo,
 donde los nodos serían las prendas y las aristas podrían implicar las incompatibilidades o no, según que datos
 se decidan modelar en el mismo.
+
+Solución:
+    Se modelaron las prendas, teniendo como dato sus costos y prendas incompatibles, y los lavados que llevan un
+registro de todas las prendas que usaran, y como consecuencia los datos derivados (costo total, prendas incompatibles, etc.).
+En esta solución lo que decidí es, una vez cargadas todas las prendas y sus datos, armar los lavados de la siguiente forma:
+    - Se tiene un listado de los numeros de prendas que todavía no se asignaron a ningún lavado
+    - Se ordenan las prendas de mayor a menor en base a su costo y se selecciona, entre las prendas que aún no fueron lavadas,
+        aquella de mayor costo
+    - Se crea un lavado con la prenda seleccionada y se agregan sucesivamente todas las prendas que todavía no se hayan lavado
+        y sean tanto compatibles con la primer prenda, como con aquellas prendas que se vayan agregando durante la
+        iteración actual
+    - Todas las prendas que forman parte del lavado actual se registran como lavadas (quitandolas del listado antes mencionado)
+    Al finalizar se habrá seleccionado sucesivamente aquella prenda que tenga mayor costo, la cual dominará en el lavado y por lo tanto
+los costos de las otras prendas (compatibles) serán si o si menores.

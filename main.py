@@ -1,64 +1,51 @@
-import constantes
+from parser import cargar_prendas
+from lavado import Lavado
 
 
-def escribir_solucion(cantidad_prendas):
+def escribir_solucion(lavados):
     output = open("solucion.txt", "w")
-    for i in range(1, cantidad_prendas):
-        val = str(i)
-        output.write(f'{val} {val}\n')
-    val = str(cantidad_prendas)
-    output.write(f'{val} {val}')
+    for lavado in lavados.values():
+        for id_prenda in lavado.obtener_ids_prendas():
+            output.write(f'{str(id_prenda)} {str(lavado.id)}\n')
 
 
-def cargar_incompatibilidad(incompatibilidades, prenda1, prenda2):
-    incomp_prenda1 = incompatibilidades.get(prenda1)
-    if incomp_prenda1:
-        incomp_prenda1.append(prenda2)
-    else:
-        incomp_prenda1 = [prenda2]
+def armar_lavados(lavados, prendas):
+    # Ordenar costos de las prendas (mayor a menor)
+    prendas_ord_costo = list(prendas.values())
+    prendas_ord_costo.sort(key=lambda p: p.costo, reverse=True)
 
-    incompatibilidades[prenda1] = incomp_prenda1
+    id_lavado_actual = 1
+    ids_prendas_no_lavadas = list(prendas.keys())
+    for prenda in prendas_ord_costo:
+        # Saltear prenda si ya fue lavada
+        if prenda.id not in ids_prendas_no_lavadas:
+            continue
 
+        nuevo_lavado = Lavado(id_lavado_actual, prenda)
 
-def cargar_costo(costos, prenda, costo):
-    costos[prenda] = costo
+        for id_prenda in ids_prendas_no_lavadas:
+            nuevo_lavado.agregar_prenda_si_compatible(prendas[id_prenda])
+
+        for p in nuevo_lavado.obtener_ids_prendas():
+            ids_prendas_no_lavadas.remove(p)
+
+        if nuevo_lavado.tiene_prendas():
+            lavados[id_lavado_actual] = nuevo_lavado
+            id_lavado_actual += 1
+
+        if not ids_prendas_no_lavadas:  # No quedan prendas por lavar
+            break
 
 
 def main():
-    cant_incompatibilidades = 0
-    cant_prendas = 0
-    incompatibilidades = {}
-    costos = {}
+    prendas = {}    # Dict <id, prenda>
+    lavados = {}    # Dict <id, lavado>
+    cargar_prendas(prendas, "primer_problema.txt")
+    armar_lavados(lavados, prendas)
+    escribir_solucion(lavados)
 
-    with open("primer_problema.txt") as archivo:
-        for linea in archivo:
-            tipo_dato = linea[constantes.POS_TIPO_DATO]
-
-            if tipo_dato == constantes.COMENTARIO:
-                continue
-
-            linea = linea.rstrip('\n')  # Quitar caracter nueva linea
-            datos = linea.split(constantes.DATOS_SEP)
-
-            if tipo_dato == constantes.FORMATO_PROBLEMA:
-                cant_incompatibilidades = int(datos[constantes.POS_CANT_INCOMPATIBILIDADES])
-                cant_prendas = int(datos[constantes.POS_CANT_PRENDAS])
-            elif tipo_dato == constantes.INCOMPATIBILIDAD:
-                cargar_incompatibilidad(
-                    incompatibilidades,
-                    int(datos[constantes.POS_PRENDA_INCOMPATIBLE_1]),
-                    int(datos[constantes.POS_PRENDA_INCOMPATIBLE_2])
-                )
-            elif tipo_dato == constantes.TIEMPO_LAVADO:
-                cargar_costo(
-                    costos,
-                    int(datos[constantes.POS_PRENDA_LAVADO]),
-                    int(datos[constantes.POS_TIEMPO_LAVADO])
-                )
-            else:
-                raise Exception("Contenido de linea incorrecto: " + tipo_dato)
-
-    escribir_solucion(cant_prendas)
+    costo_total = sum(map(lambda l: l.obtener_costo(), list(lavados.values())))
+    print("Costo total: " + str(costo_total))
 
 
 if __name__ == "__main__":
