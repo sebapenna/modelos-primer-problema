@@ -28,8 +28,8 @@ def obtener_prenda_mayor_grado(lavados, prendas_no_lavadas):
             # Prenda comparte grado de saturacion con maximo actual
             prendas_max_grado_saturacion.append(prenda)
 
-    # Ordeno prendas con mayor grado de saturacion en base a su grado
-    prendas_max_grado_saturacion.sort(key=lambda p: p.cantidad_incompatibles(), reverse=True)
+    # Ordeno prendas con mayor grado de saturacion en base a su costo
+    prendas_max_grado_saturacion.sort(key=lambda p: p.costo, reverse=True)
 
     # Devuelvo primer prenda que tenga mayor grado
     return prendas_max_grado_saturacion[0]

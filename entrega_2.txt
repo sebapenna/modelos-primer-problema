@@ -32,3 +32,7 @@ el cual mide la cantidad de colores (en terminos del problema los lavados) usado
     Dado que como se menciono el algoritmo de Welsh y Powell es bastante similar a la solución usada hasta ahora, se modificó
 la solución para seguir los pasos del algoritmo de Brelaz. Se logró obtener así un costo total de 332, mucho menor a lo
 conseguido hasta el momento.
+
+Actualización:
+    En cada paso en que se seleccionan los vértices, en lugar de ordenar por el grado máximo en caso de compartir
+grado de saturación se ordena por costo. Se mejoro la solución, obteniendo un costo total de 274.
