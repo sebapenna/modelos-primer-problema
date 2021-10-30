@@ -9,3 +9,8 @@ entonces el algoritmo para encontrar el problema.
     Lo que se encontro es que, al indicarse una incompatibilidad en el archivo, faltaba cargarla en ambos sentidos (en el caso
 de error sería tanto cargar 5 como incompatible de 1, como 1 como incompatible de 5). Al ejecutar el algoritmo nuevamente
 se obtuvo una mejoría, pasando el costo total a 583.
+
+Actualización:
+    En lugar de ordenar las prendas por cantidad de incompatibilidades a la hora de asignar lavados, se prueba ordenarlas
+por el costo, dada la gran cantidad de prendas que se tiene en esta instancia. Se obtuvo satisfactoriamente una mejoría
+bajando el costo total a 483.

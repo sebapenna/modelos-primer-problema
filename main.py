@@ -11,12 +11,12 @@ def escribir_solucion(lavados):
 
 def armar_lavados(lavados, prendas):
     # Ordenar prendas por cantidad incompatibilidades (mayor a menor)
-    prendas_ord_incomp = list(prendas.values())
-    prendas_ord_incomp.sort(key=lambda p: p.cantidad_incompatibles(), reverse=True)
+    prendas_ord_costo_desc = list(prendas.values())
+    prendas_ord_costo_desc.sort(key=lambda p: p.costo, reverse=True)
 
     id_lavado_actual = 1
-    ids_prendas_no_lavadas = list(map(lambda p: p.id, prendas_ord_incomp))
-    for prenda in list(prendas_ord_incomp):
+    ids_prendas_no_lavadas = list(map(lambda p: p.id, prendas_ord_costo_desc))
+    for prenda in list(prendas_ord_costo_desc):
         # Saltear prenda si ya fue lavada
         if prenda.id not in ids_prendas_no_lavadas:
             continue
