@@ -14,3 +14,21 @@ Actualización:
     En lugar de ordenar las prendas por cantidad de incompatibilidades a la hora de asignar lavados, se prueba ordenarlas
 por el costo, dada la gran cantidad de prendas que se tiene en esta instancia. Se obtuvo satisfactoriamente una mejoría
 bajando el costo total a 483.
+
+Actualización:
+    Como se planteo en un comienzo en el primer problema, se busco una posible solución vinculada al uso de grafos y, en
+particular, de la coloración de grafos. Investigando sobre posibles algoritmos que se podrían utilizar encontre 2 opciones
+intresantes:
+-   Algoritmo de Welsh y Powell: lo que plantea es ordenar los vertices en base a su grado, algo bastante similar a lo
+que venía utilizando.
+- Algoritmo de Brelaz: además de tener en cuenta el grado de los vertices introduce el concepto de grado de saturación,
+el cual mide la cantidad de colores (en terminos del problema los lavados) usados en los vecinos del mismo. Sus pasos son:
+    1. Ordenar los vértices en orden decreciente de grados
+    2. Asignar el primer color (lavado) al vértice de grado máximo
+    3. Seleccionar otro vértice, sin colorear (lavar), con grado de saturación máximo. En caso de que fuesen varios,
+    se toma el de grado máximo.
+    4. Colorear (asignar lavado) al vértice del paso 3 con el color (lavado) más bajo posible
+    5. Repetir con todos los vértices hasta finalizar
+    Dado que como se menciono el algoritmo de Welsh y Powell es bastante similar a la solución usada hasta ahora, se modificó
+la solución para seguir los pasos del algoritmo de Brelaz. Se logró obtener así un costo total de 332, mucho menor a lo
+conseguido hasta el momento.
