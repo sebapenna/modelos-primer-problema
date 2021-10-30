@@ -2,3 +2,10 @@
 creado para la primera instancia en éste caso. El resultado que se obtiene para el costo total es de 634. Sabiendo
 que éste algoritmo seguramente no sea la mejor solución al nuevo problema, se analizaran distintas opciones para obtener
 mejores resultados.
+
+Actualización:
+    Al intentar cargar el archivo, se indico un error de asignación invalida "Asignación inválida, ver 1 y 5 --> 1". Se revisa
+entonces el algoritmo para encontrar el problema.
+    Lo que se encontro es que, al indicarse una incompatibilidad en el archivo, faltaba cargarla en ambos sentidos (en el caso
+de error sería tanto cargar 5 como incompatible de 1, como 1 como incompatible de 5). Al ejecutar el algoritmo nuevamente
+se obtuvo una mejoría, pasando el costo total a 583.

@@ -41,10 +41,16 @@ def cargar_prendas(prendas, nombre_archivo):
                     int(datos[constantes.POS_CANT_PRENDAS])
                 )
             elif tipo_dato == constantes.INCOMPATIBILIDAD:
+                # Cargar incopatibilidad en ambos sentidos
                 _cargar_incompatibilidad(
                     prendas,
                     int(datos[constantes.POS_PRENDA_INCOMPATIBLE_1]),
                     int(datos[constantes.POS_PRENDA_INCOMPATIBLE_2])
+                )
+                _cargar_incompatibilidad(
+                    prendas,
+                    int(datos[constantes.POS_PRENDA_INCOMPATIBLE_2]),
+                    int(datos[constantes.POS_PRENDA_INCOMPATIBLE_1])
                 )
             elif tipo_dato == constantes.TIEMPO_LAVADO:
                 _cargar_costo(
