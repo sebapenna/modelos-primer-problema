@@ -1,0 +1,4 @@
+    Para resolver el problema con el nuevo archivo brindado, lo primero que se prueba es como funciona el algoritmo
+creado para la primera instancia en éste caso. El resultado que se obtiene para el costo total es de 634. Sabiendo
+que éste algoritmo seguramente no sea la mejor solución al nuevo problema, se analizaran distintas opciones para obtener
+mejores resultados.

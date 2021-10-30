@@ -40,7 +40,7 @@ def armar_lavados(lavados, prendas):
 def main():
     prendas = {}    # Dict <id, prenda>
     lavados = {}    # Dict <id, lavado>
-    cargar_prendas(prendas, "primer_problema.txt")
+    cargar_prendas(prendas, "segundo_problema.txt")
     armar_lavados(lavados, prendas)
     escribir_solucion(lavados)
 
