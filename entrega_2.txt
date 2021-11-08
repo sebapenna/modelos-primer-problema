@@ -36,3 +36,10 @@ conseguido hasta el momento.
 Actualización:
     En cada paso en que se seleccionan los vértices, en lugar de ordenar por el grado máximo en caso de compartir
 grado de saturación se ordena por costo. Se mejoro la solución, obteniendo un costo total de 274.
+
+Actualización:
+    Para probar el efecto de variar el valor que se toma al seleccionar el peso y/o la cantidad de incompatibilidades
+al seleccionar un vertice tanto al inicio como en los disintos, pasos fui modificando al valor usado dando más importancia
+tanto a un término como otro, es decir, el valor usado para seleccionar es una combinación lineal entre el peso y la
+cantidad de incompatibilides. Lo que en encontre es que dando la mitad de la importancia tanto al peso como la cantidad de
+incompatibilades se pudo reducir en uno el costo total, lo cuál no es una gran mejoría, pero reduce el valor encontrado.

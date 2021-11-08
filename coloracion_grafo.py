@@ -13,7 +13,7 @@ def _grado_saturacion(lavados, prenda):
 
 # Devuelve prenda con mayor grado de saturacion
 # Si mas de una prenda tiene el mismo grado de saturacion
-# entonces se devuelve la que tenga mayor grado
+# entonces se devuelve la que tenga mayor costo
 def obtener_prenda_mayor_grado(lavados, prendas_no_lavadas):
     max_grado_saturacion = 0
     prendas_max_grado_saturacion = []
@@ -31,5 +31,5 @@ def obtener_prenda_mayor_grado(lavados, prendas_no_lavadas):
     # Ordeno prendas con mayor grado de saturacion en base a su costo
     prendas_max_grado_saturacion.sort(key=lambda p: p.costo, reverse=True)
 
-    # Devuelvo primer prenda que tenga mayor grado
+    # Devuelvo primer prenda que tenga mayor costo
     return prendas_max_grado_saturacion[0]
