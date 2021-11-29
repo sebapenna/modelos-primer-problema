@@ -1,0 +1,6 @@
+/tercer_problema/.idea
+/venv
+/.idea
+/**/*.vcxproj
+/**/*.vcxproj.*
+/**/*.cpp.sln
