@@ -1,9 +1,9 @@
 #ifndef _pNodeslist_h
 #define _pNodeslist_h
 
-#include "defs.h"
-#include "node.h"
-#include "pnode.h"
+#include "../inc/defs.h"
+#include "../inc/node.h"
+#include "../inc/pnode.h"
 
 
 pNodesList *createpNodesList();

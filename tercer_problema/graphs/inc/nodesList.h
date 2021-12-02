@@ -1,9 +1,9 @@
 #ifndef _nodeslist_h
 #define _nodeslist_h
 
-#include "defs.h"
-#include "node.h"
-#include "pnode.h"
+#include "../inc/defs.h"
+#include "../inc/node.h"
+#include "../inc/pnode.h"
 
 /**
  * Function that create the nodes list where store all the nodes of the graph

@@ -4,10 +4,10 @@
 typedef struct _node Node;
 typedef Node NodesList;
 
-#include "defs.h"
-#include "nodesList.h"
-#include "pnode.h"
-#include "pnodesList.h"
+#include "../inc/defs.h"
+#include "../inc/nodesList.h"
+#include "../inc/pnode.h"
+#include "../inc/pnodesList.h"
 
 struct _node{
 

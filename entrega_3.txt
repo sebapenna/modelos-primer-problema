@@ -1,0 +1,10 @@
+    Para éste punto del trabajo el objetivo es poder llegar a obtener el valor óptimo
+a través del código provisto que utiliza CPLEX. Por lo tanto, el problema ahora (como se menciona
+en el enunciado) es lograr que el código termine su ejecución en un tiempo razonable.
+    Para poder lograr ésto los pasos que pienso seguir (tomando en cuenta las recomendaciones) son: obtener
+una solución al problema mediante la heurisitca que conseguí en el segundo problema, el cual trabajaba
+utilizando coloreo de grafos y más precisamente el algoritmo de Brelaz. Luego, esa solución voy a usarla
+dentro de la función buscarSolucionInicial para que el problema pueda terminar, dado que hasta este punto
+el tiempo de ejecución no es manejable. Una vez que consiga que el código finalice, el trabajo consistirá
+en mejorar también el valor de maxColor para conseguir mejorar los tiempos. La idea es usar en maxColor la
+cantidad de lavados con que termine luego de ejecutar el problema con la heuristica de mi segundo trabajo.

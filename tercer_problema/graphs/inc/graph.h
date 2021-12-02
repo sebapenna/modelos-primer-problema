@@ -1,8 +1,8 @@
 #ifndef _graph_h
 #define _graph_h
 
-#include "defs.h"
-#include "nodesList.h"
+#include "../inc/defs.h"
+#include "../inc/nodesList.h"
 
 typedef struct _graph Graph;
 

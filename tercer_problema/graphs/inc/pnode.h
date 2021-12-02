@@ -4,8 +4,8 @@
 typedef struct _pnode pNode;
 typedef pNode pNodesList;
 
-#include "defs.h"
-#include "node.h"
+#include "../inc/defs.h"
+#include "../inc/node.h"
 
 struct _pnode{
 

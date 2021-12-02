@@ -4,7 +4,7 @@
 
 #define TIPO_VARIABLE CPX_BINARY
 
-#include "/home/spenna/Escritorio/CPLEX/cplex/include/ilcplex/cplex.h"
+#include "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/include/ilcplex/cplex.h"
 
 #include <ctype.h>
 #include <stdlib.h>
