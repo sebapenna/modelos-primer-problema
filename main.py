@@ -6,9 +6,13 @@ import time
 
 def escribir_solucion(lavados):
     output = open("solucion.txt", "w")
+    dict_p = {}
     for lavado in lavados.values():
         for id_prenda in lavado.obtener_ids_prendas():
-            output.write(f'{str(id_prenda)} {str(lavado.id)}\n')
+            dict_p[id_prenda] = lavado.id
+    
+    for key in sorted(dict_p):
+        output.write(f'{str(key)} {str(dict_p[key])}\n')
 
 
 # Se arman los lavados aplicando el algoritmo de Brelaz

@@ -12,3 +12,26 @@ cantidad de lavados con que termine luego de ejecutar el problema con la heurist
 Actualizacion:
     Al correr el problema con la solucion de la segunda entrega obtuve un costo total de 118 en 0.16 seg, usando
 un total de 7 lavados.
+    Con esta solucion probe entonces realizar todas las modificaciones necesarias al codigo para poder resolver el problema.
+En primer lugar, dentro de buscarSolucionInicial tome como entrada la solucion generada por mi ejecutable del trabajo anterior
+e itere cada linea para asignar a cada una de las prendas el numero de lavado que le correspondia. Luego, modifique el valor
+de maxColor a 7, el numero de lavados que obtuve como solucion.
+    Con ambas modificaciones el programa comenzaba a funcionar pero una vez que alcanzaba el valor de 91 no conseguia reducir el
+GAP, por lo que la ejecución continuaba indefinidamente y no se conseguia llegar a una solucion final. Para poder resolver esto,
+agregue el codigo mencionado en el punto 4 del enunciado para sumar una restriccion nueva, y mediante ese agregado
+el programa pudo concluir su ejecución llegando al siguiente resultado:
+
+Optimo: 91.000000
+Cota: 91.000000
+Nodos: 15490
+Tiempo: 56.218000
+
+    Como se puede ver claramente, el valor obtenido mediante la heuristica del segundo problema quedo
+bastante alejada del optimo obtenido al utilizar la api de CPLEX. Sin embargo, esta heurisitca es la que 
+permite poder llegar a obtener un resultado en un tiempo bastante acotado (cercano al minuto),
+cuando en un principio no se conseguia que la aplicacion termine su ejecución. 
+    La resolucion de este trabajo  deja en claro que el problema de obtener el valor optimo puede resultar de un gran orden  
+(en cuanto a magnitud de tiempo) si no se realizan los pasos correctos en medio y no se crea una heuristica aceptable para brindar
+como primer alternativa al comenzar el problema. Ademas, el seleccionar el valor correcto de los distintos parametros,
+como es el caso de maxColor, va a impactar en el tiempo de ejecución que nos va a requerir obtener la solucion
+final, ya que es una condicion necesaria que el programa no lleve un tiempo indefinido.
