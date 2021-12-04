@@ -1,6 +1,14 @@
 /tercer_problema/.idea
+/tercer_problema/.vs
 /venv
 /.idea
 /**/*.vcxproj
 /**/*.vcxproj.*
 /**/*.cpp.sln
+
+/__pycache__/
+solucion.txt
+tercer_problema/modelos_uno.exe
+tercer_problema/modelos_uno.pdb
+tercer_problema/*.lp
+tercer_problema/Debug/**

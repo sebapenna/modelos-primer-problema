@@ -4,11 +4,12 @@
 
 #define TIPO_VARIABLE CPX_BINARY
 
-#include "C:/Program Files/IBM/ILOG/CPLEX_Studio1210/cplex/include/ilcplex/cplex.h"
+#include "C:\Program Files\IBM\ILOG\CPLEX_Studio201/cplex/include/ilcplex/cplex.h"
 
 #include <ctype.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include <math.h>
 
 #include "leer_dimac.h"
@@ -262,7 +263,7 @@ int procesar_Tp(char *path, char *pathOutput) {
 
 	///----
 	int *coloreoValido = (int *) malloc(Nr_vert * sizeof(int));
-	int maxColor = Nr_vert;
+	int maxColor = 7;
 	buscarSolucionInicial(coloreoValido);
 
 	status = populatebyrow(env, lp, matriz, pesos, Nr_vert, maxColor);
@@ -380,8 +381,28 @@ int procesar_Tp(char *path, char *pathOutput) {
 } /* END main */
 
 void buscarSolucionInicial(int* coloreoValido) {
-	int i;
-	for (i = 0; i < Nr_vert; i++) {
-		coloreoValido[i] = i;
+	FILE *file = fopen("solucion.txt", "r");
+	size_t line_buf_size = 0;
+	size_t line_size;
+	char line_buf[20];
+
+	int i = 0;
+	int prenda = 0;
+	int lavado = 0;
+	bool siguiente_es_prenda = true;
+
+	fscanf(file, "%d", &i);
+	while (!feof(file))
+	{
+		if (siguiente_es_prenda) {
+			siguiente_es_prenda = false;
+			prenda = i;
+		} else {
+			siguiente_es_prenda = true;
+			coloreoValido[prenda] = i;
+		}
+		fscanf(file, "%d", &i);
 	}
+
+	fclose(file);
 }

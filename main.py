@@ -1,4 +1,4 @@
-from parser import cargar_prendas
+from parser_problema import cargar_prendas
 from lavado import Lavado
 from coloracion_grafo import obtener_prenda_mayor_grado
 import time
@@ -52,7 +52,7 @@ def main():
     start = time.time()
     prendas = {}    # Dict <id, prenda>
     lavados = {}    # Dict <id, lavado>
-    cargar_prendas(prendas, "segundo_problema.txt")
+    cargar_prendas(prendas, "tercer_problema.txt")
     armar_lavados(lavados, prendas)
     escribir_solucion(lavados)
     end = time.time()

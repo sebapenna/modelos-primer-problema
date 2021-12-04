@@ -8,3 +8,7 @@ dentro de la función buscarSolucionInicial para que el problema pueda terminar,
 el tiempo de ejecución no es manejable. Una vez que consiga que el código finalice, el trabajo consistirá
 en mejorar también el valor de maxColor para conseguir mejorar los tiempos. La idea es usar en maxColor la
 cantidad de lavados con que termine luego de ejecutar el problema con la heuristica de mi segundo trabajo.
+
+Actualizacion:
+    Al correr el problema con la solucion de la segunda entrega obtuve un costo total de 118 en 0.16 seg, usando
+un total de 7 lavados.
